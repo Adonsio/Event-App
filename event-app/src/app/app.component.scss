@@ -1,0 +1,18 @@
+.navbar {
+  justify-content: space-between;
+  font-weight: normal;
+}
+.navbar-links a {
+  padding-right: 1rem;
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: darken(#fff, 50);
+
+  }
+}
+
+.bg-dark {
+
+  padding: 0 5em;
+}

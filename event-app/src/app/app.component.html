@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>Event App</div>
+  <div class="navbar-links">
+    <div *ngIf="isLoggedIn()">
+      <a routerLink="/events">Events</a>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/login" (click)="logout()">Logout</a>
+    </div>
+    <div *ngIf="!isLoggedIn()">
+      <a  routerLink="/login">Login</a>
+      <a routerLink="/register" >Register</a>
+    </div>
+
+
+  </div>
+</mat-toolbar>
+
+<div class="bg-dark">
+  <router-outlet></router-outlet>
+</div>
+
