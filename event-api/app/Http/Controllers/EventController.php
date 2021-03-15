@@ -64,7 +64,7 @@ class EventController extends ResponseController
         return $this->sendResponse($events,'Event deleted');
     }
     public function userEvents($id){
-        $user = User::find($id);
-        return response()->json($user->events);
+        $events = Event::where('user_id', $id)->latest()->get();
+        return response()->json($events);
     }
 }
