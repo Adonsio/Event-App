@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class EventController extends ResponseController
 {
     public function index(){
-        $events = Event::with('user')->latest()->get();
+        $events = Event::with('user')->latest()->paginate(15);
         if (count($events))
         {
             return response()->json($events, 200);
