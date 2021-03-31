@@ -24,7 +24,7 @@ class EventFactory extends Factory
     {
         //'name','desc','excerpt','start_date','size'
         return [
-            'name' => 'Event of '. $this->faker->realText(15),
+            'name' => 'Event of '. $this->faker->firstName,
             'desc' => $this->faker->realText(120),
             'excerpt' => $this->faker->realText(30),
             'start_date' => $this->faker->date(),

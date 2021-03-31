@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {AuthService} from "../auth/auth.service";
+import {Event} from '../event';
+import {PaginatedEvent} from "../paginated-event";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +13,8 @@ export class EventService {
   constructor(
     private http: HttpClient,
     private authService: AuthService) { }
-  getEvents(): Observable<Object[]> {
-    return this.http.get<Object[]>(`${this.apiUrl}events`)
+  getEvents(): Observable<PaginatedEvent> {
+    return this.http.get<PaginatedEvent>(`${this.apiUrl}events`);
   }
   getEvent(id: number): Observable<Object[]> {
     return this.http.get<Object[]>(`${this.apiUrl}events/${id}`)
@@ -32,5 +34,10 @@ export class EventService {
   delete(id: number){
     return this.http.delete(`${this.apiUrl}events/${id}`)
   }
+
+  getEventPage(url: string): Observable<PaginatedEvent> {
+    return this.http.get<PaginatedEvent>(url);
+  }
+
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService} from "./event.service";
 import {Router} from "@angular/router";
-
+import {PaginatedEvent} from '../paginated-event';
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
@@ -9,10 +9,10 @@ import {Router} from "@angular/router";
 })
 export class EventListComponent implements OnInit {
 
-  events: any[];
+  events: PaginatedEvent;
 
   constructor(private eventService: EventService, private router: Router) {
-    this.events = [];
+    this.events = this.getEvents();
   }
   create(){
     this.router.navigateByUrl('/event/create')
@@ -26,9 +26,27 @@ export class EventListComponent implements OnInit {
     this.router.navigateByUrl(`/event/${id}`)
   }
 
+  getEvents(): any{
+    this.eventService.getEvents().subscribe((events: PaginatedEvent) => {
+      return events;
+    })
+  }
+
+prevPage(): any{
+  this.eventService.getEventPage(this.events.prev_page_url).subscribe((events: PaginatedEvent) => {
+    this.events = events;
+  });
+}
+
+nextPage(): any{
+  this.eventService.getEventPage(this.events.next_page_url).subscribe((events: PaginatedEvent) => {
+    this.events = events;
+  });
+}
+
   ngOnInit() {
-    this.eventService.getEvents().subscribe((events: any) => {
-        this.events = events.data
+    this.eventService.getEvents().subscribe((events: PaginatedEvent) => {
+        this.events = events;
     })
   }
 
