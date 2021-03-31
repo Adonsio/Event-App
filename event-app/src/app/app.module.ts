@@ -20,6 +20,8 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { ShowEventComponent } from './show-event/show-event.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PaginationComponent } from './pagination/pagination.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ShowEventComponent,
     RegisterComponent,
     DashboardComponent,
-
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatGridListModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [
     {
