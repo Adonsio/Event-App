@@ -16,14 +16,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import { MatIconModule} from "@angular/material/icon";
-import {MatPaginatorModule} from "@angular/material/paginator";
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { ShowEventComponent } from './show-event/show-event.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PaginationComponent } from './pagination/pagination.component';
-
 
 @NgModule({
   declarations: [
@@ -35,7 +31,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     ShowEventComponent,
     RegisterComponent,
     DashboardComponent,
-    PaginationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,9 +44,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     MatGridListModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatPaginatorModule
+    MatInputModule
   ],
   providers: [
     {

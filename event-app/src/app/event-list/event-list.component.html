@@ -1,16 +1,6 @@
 <button mat-raised-button (click)="create()" class="event-button">Create new Event</button>
-
-<div style="display: block;margin: 50px;">
-  <p>Showing booking {{events.from}} to {{events.to}} of {{events.total}}</p>
-  <p>Page {{events.current_page}} of {{events.last_page}}</p>
-
-  <button mat-flat-button (click)="prevPage()" [disabled]="!events.prev_page_url" >Prev</button>
-  <button mat-flat-button (click)="nextPage()" [disabled]="!events.next_page_url">Next</button>
-</div>
-
 <mat-grid-list cols="4" rowHeight="300" [gutterSize]="'10px'">
-
-  <mat-grid-tile *ngFor="let event of events.data">
+  <mat-grid-tile *ngFor="let event of events">
 
 
     <mat-card class="event-card" >
