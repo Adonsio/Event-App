@@ -1,7 +1,7 @@
-<div style="display: block;margin: 50px;">
+<div style="margin: 50px 0  50px 10px ; ">
   <p>Showing booking {{events.from}} to {{events.to}} of {{events.total}}</p>
   <p>Page {{events.current_page}} of {{events.last_page}}</p>
 
-  <button mat-flat-button (click)="prevPage()" [disabled]="!events.prev_page_url" >Prev</button>
-  <button mat-flat-button (click)="nextPage()" [disabled]="!events.next_page_url">Next</button>
+  <button mat-flat-button (click)="pPage()" [disabled]="!events.prev_page_url" >Prev</button>
+  <button mat-flat-button (click)="nPage()" [disabled]="!events.next_page_url">Next</button>
 </div>

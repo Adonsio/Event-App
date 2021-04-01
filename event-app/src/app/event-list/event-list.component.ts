@@ -44,6 +44,7 @@ nextPage(): any{
     this.events = events;
   });
 }
+parentFun(): any {alert('parent component function.'); }
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((events: PaginatedEvent) => {

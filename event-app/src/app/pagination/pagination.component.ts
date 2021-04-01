@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {PaginatedEvent} from '../paginated-event';
 import {EventService} from "../event-list/event.service";
 
@@ -10,21 +10,22 @@ import {EventService} from "../event-list/event.service";
 export class PaginationComponent implements OnInit {
 
   @Input() events: PaginatedEvent;
-
+  // tslint:disable-next-line:no-output-rename
+  @Output('prevPage') prevPage: EventEmitter<any> = new EventEmitter();
+  // tslint:disable-next-line:no-output-rename
+  @Output('nextPage') nextPage: EventEmitter<any> = new EventEmitter();
   constructor(private eventService: EventService) {
     // @ts-ignore
     this.events = eventService.getEvents();
+
+
   }
-  prevPage(): any{
-    this.eventService.getEventPage(this.events.prev_page_url).subscribe((events: PaginatedEvent) => {
-      this.events = events;
-    });
+  pPage(): any{
+    this.prevPage.emit();
   }
 
-  nextPage(): any{
-    this.eventService.getEventPage(this.events.next_page_url).subscribe((events: PaginatedEvent) => {
-      this.events = events;
-    });
+  nPage(): any{
+    this.nextPage.emit();
   }
 
   ngOnInit(): void {
