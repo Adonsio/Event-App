@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService} from "./event.service";
-import {Router} from "@angular/router";
+import { EventService} from './event.service';
+import {PaginatedEvent} from '../paginated-event';
 
 @Component({
   selector: 'app-event-list',
@@ -9,27 +9,33 @@ import {Router} from "@angular/router";
 })
 export class EventListComponent implements OnInit {
 
-  events: any[];
+  events: PaginatedEvent | null = null;
 
-  constructor(private eventService: EventService, private router: Router) {
-    this.events = [];
-  }
-  create(){
-    this.router.navigateByUrl('/event/create')
+  constructor(private eventService: EventService) {
   }
 
-  edit(id: number){
-    this.router.navigateByUrl(`/event/${id}/edit`)
+prevPage(): void{
+  if (!this.events){
+    return;
   }
+  this.eventService.getEventPage(this.events.prev_page_url).subscribe((events: PaginatedEvent) => {
+    this.events = events;
+  });
+}
 
-  show(id: number){
-    this.router.navigateByUrl(`/event/${id}`)
+nextPage(): void{
+  if (!this.events){
+    return;
   }
+  this.eventService.getEventPage(this.events.next_page_url).subscribe((events: PaginatedEvent) => {
+    this.events = events;
+  });
+}
 
-  ngOnInit() {
-    this.eventService.getEvents().subscribe((events: any) => {
-        this.events = events
-    })
+  ngOnInit(): void {
+    this.eventService.getEvents().subscribe((events: PaginatedEvent) => {
+        this.events = events;
+    });
   }
 
 }

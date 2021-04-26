@@ -1,0 +1,7 @@
+<div style="margin: 50px 0  50px 10px ; " *ngIf="events">
+  <p>Showing booking {{events.from}} to {{events.to}} of {{events.total}}</p>
+  <p>Page {{events.current_page}} of {{events.last_page}}</p>
+
+  <button mat-flat-button (click)="prevPage.emit()" [disabled]="!events.prev_page_url" >Prev</button>
+  <button mat-flat-button (click)="nextPage.emit()" [disabled]="!events.next_page_url">Next</button>
+</div>
