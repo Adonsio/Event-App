@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService} from './event.service';
-import {Router} from '@angular/router';
 import {PaginatedEvent} from '../paginated-event';
 
 @Component({
@@ -12,18 +11,7 @@ export class EventListComponent implements OnInit {
 
   events: PaginatedEvent | null = null;
 
-  constructor(private eventService: EventService, private router: Router) {
-  }
-  create(): void{
-    this.router.navigateByUrl('/event/create');
-  }
-
-  edit(id: number): void{
-    this.router.navigateByUrl(`/event/${id}/edit`);
-  }
-
-  show(id: number): void{
-    this.router.navigateByUrl(`/event/${id}`);
+  constructor(private eventService: EventService) {
   }
 
 prevPage(): void{

@@ -1,4 +1,4 @@
-<button mat-raised-button (click)="create()" class="event-button">Create new Event</button>
+<a mat-raised-button routerLink="/event/create" class="event-button">Create new Event</a>
 
 
 <app-pagination [events]="events" (prevPage)='prevPage()' (nextPage)='nextPage()'></app-pagination>
@@ -20,7 +20,7 @@
         <p>Event by {{ event.user.username}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="show(event.id)">Read more</button>
+        <a mat-raised-button color="primary" [routerLink]="['/event', event.id]">Read more</a>
 
       </mat-card-actions>
     </mat-card>
