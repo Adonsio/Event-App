@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthService} from "../auth/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EventService} from "../event-list/event.service";
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
 
   form:FormGroup;
 
@@ -27,8 +27,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
 
   register() {
     const val = this.form.value

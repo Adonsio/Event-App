@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {EventService} from "../event-list/event.service";
@@ -9,7 +9,7 @@ import {AuthService} from "../auth/auth.service";
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.scss']
 })
-export class CreateEventComponent implements OnInit {
+export class CreateEventComponent {
 
   form:FormGroup;
 
@@ -27,8 +27,6 @@ export class CreateEventComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
 
   submit() {
     const val = this.form.value
