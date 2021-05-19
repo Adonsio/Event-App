@@ -26,9 +26,9 @@ jobs:
       - name: npm install and npm run test
         run: |
           npm i
-          npm run test
+          npm run test:ci
         working-directory: event-app
       - name: npm run build
         run: |
-          npm run build
+          npm run build:ci
         working-directory: event-app
