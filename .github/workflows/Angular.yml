@@ -13,13 +13,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-          working-directory: event-app
       - name: Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
