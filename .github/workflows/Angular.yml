@@ -20,4 +20,5 @@ jobs:
       uses: colbyhill21/angular-full-ci/@v1.0
       with:
         testcommand: run test:ci
-      working_directory: event-app
+        working-directory: event-app
+      
