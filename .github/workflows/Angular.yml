@@ -23,8 +23,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and npm run build
+      - name: npm install and npm run test
         run: |
           npm i
+          npm run test
+        working-directory: event-app
+      - name: npm run build
+        run: |
           npm run build
         working-directory: event-app
