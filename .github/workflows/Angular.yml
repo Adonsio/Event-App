@@ -10,25 +10,11 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Cache node modules
-        uses: actions/cache@v2
+      - name: Angular Full CI
+        # You may pin to the exact commit or the version.
+        # uses: colbyhill21/angular-full-ci@a3489087f6a715db335078f999c01d422a254a6c
+        uses: colbyhill21/angular-full-ci@v1.0
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install and npm run test
-        run: |
-          npm i
-          npm run test:ci
-        working-directory: event-app
-      - name: npm run build
-        run: |
-          npm run build:ci
-        working-directory: event-app
+          # Command to run tests on your project, do not prepend with "npm", it is already included.
+          testcommand: test:cli
+          working_directory: event-app
