@@ -34,3 +34,7 @@ jobs:
       - name: Run test:ci command
         run: npm run test:ci
         working-directory: event-app
+        
+      - name: Run build:ci command
+        run: npm run build:ci
+        working-directory: event-app
