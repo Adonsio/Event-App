@@ -1,34 +1,24 @@
-on: 
-  push:     
+on:
+  push:
     branches: [ main ]
-name: Build Angular
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build"
   build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install and npm run test
-        run: |
-          npm i
-          npm run test:ci
-        working-directory: event-app
-      - name: npm run build
-        run: |
-          npm run build:ci
-        working-directory: event-app
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    
+    - name: test action
+      uses: colbyhill21/angular-full-ci/@v1.0
+      with:
+        testcommand: run test:ci
+        working_directory: event-app
+      
