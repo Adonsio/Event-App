@@ -41,7 +41,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-          working-directory: event-app
+
 
 
       - name: Run npm i
