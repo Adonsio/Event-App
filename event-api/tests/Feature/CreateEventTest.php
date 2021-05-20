@@ -17,8 +17,9 @@ class CreateEventTest extends TestCase
      *
      * @return void
      */
-    public function tmp_test_createEvent()
+    public function test_createEvent()
     {
+        $this->artisan('migrate:fresh');
         $this->seed();
         $payload = [
         'name' => 'Event of '. $this->faker->realText(15),
