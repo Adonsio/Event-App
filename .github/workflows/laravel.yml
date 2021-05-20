@@ -3,8 +3,12 @@ name: Laravel
 on:
   push:
     branches: [ main ]
+    paths: 
+      - 'event-api/**'
   pull_request:
     branches: [ main ]
+    paths: 
+      - 'event-api/**'
 
 jobs:
   laravel-tests:
