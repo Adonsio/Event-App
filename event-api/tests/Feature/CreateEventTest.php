@@ -17,7 +17,7 @@ class CreateEventTest extends TestCase
      *
      * @return void
      */
-    public function test_createEvent()
+    public function tmp_test_createEvent()
     {
         $this->seed();
         $payload = [
