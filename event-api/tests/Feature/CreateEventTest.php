@@ -19,6 +19,7 @@ class CreateEventTest extends TestCase
      */
     public function test_createEvent()
     {
+        $this->seed();
         $payload = [
         'name' => 'Event of '. $this->faker->realText(15),
         'desc' => $this->faker->realText(120),
