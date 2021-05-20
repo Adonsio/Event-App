@@ -41,6 +41,7 @@ jobs:
       working-directory: event-api
     - name: Migrate DB
       run: php artisan migrate --force
+      working-directory: event-api
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
