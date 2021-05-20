@@ -16,7 +16,7 @@ class GetEventsTest extends TestCase
      *
      * @return void
      */
-    public function tmp_test_events_can_be_retrieved()
+    public function test_events_can_be_retrieved()
     {
         $user = User::factory()->create();
 

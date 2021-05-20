@@ -15,8 +15,10 @@ class GetUserEventsTest extends TestCase
      *
      * @return void
      */
-    public function tmp_test_user_events_can_be_retrieved()
+    public function test_user_events_can_be_retrieved()
     {
+
+        $this->artisan('migrate:fresh');
         $this->seed();
 
         $user = User::factory()->create();
