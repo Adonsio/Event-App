@@ -26,4 +26,4 @@ and **event-app** for the Angular 11 App.
  
 1. Start the Application with `ng serve`
  
- ` 
+ 
