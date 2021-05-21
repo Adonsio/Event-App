@@ -21,6 +21,7 @@ import { ShowEventComponent } from './show-event/show-event.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     RegisterComponent,
     DashboardComponent,
     PaginationComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
