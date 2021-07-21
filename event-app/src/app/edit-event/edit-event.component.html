@@ -39,6 +39,10 @@
             <mat-hint align="start"><strong>Size</strong> </mat-hint>
             <mat-hint align="end">{{size.value}} / 16</mat-hint>
           </mat-form-field>
+
+            <div *appIf="+size.value; size:0">Keine Teilnehmer</div>
+            <!--<div *appIf="+size.value; size:16">Zu viele Teilnehmer</div>-->
+            <ng-template [appIf]="+size.value" [appIfSize]="16"><div>Keine weiteren Teilnehmer möglich</div></ng-template>
           <br>
           <mat-form-field class="event-full-width">
             <mat-label>Start Date</mat-label>

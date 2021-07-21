@@ -22,6 +22,11 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { NavComponent } from './nav/nav.component';
+import {CommonModule} from "./common/common.module";
+import { NavbarDirective } from './nav/navbar.directive';
+import { IfDirective } from './edit-event/if.directive';
+import {MatOptionModule} from "@angular/material/core";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -36,6 +41,8 @@ import { NavComponent } from './nav/nav.component';
     DashboardComponent,
     PaginationComponent,
     NavComponent,
+    NavbarDirective,
+    IfDirective,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +56,9 @@ import { NavComponent } from './nav/nav.component';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    CommonModule,
+    MatOptionModule,
+    MatAutocompleteModule,
   ],
   providers: [
     {

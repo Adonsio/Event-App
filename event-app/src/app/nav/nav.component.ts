@@ -9,14 +9,12 @@ import {Router} from "@angular/router";
 })
 export class NavComponent  {
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router) {
   }
   logout(){
     this.authService.logout();
     this.router.navigate(['/login']);
   }
-  isLoggedIn(){
-    return this.authService.isLoggedIn();
-  }
+
 
 }
